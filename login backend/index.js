@@ -67,16 +67,13 @@ app.post('/login', (req, res)=> {
                 res.redirect('/welcome');
                 console.log('user login successful')
             } 
-            if (results.length < 0){
-                return res.status(404).json({message:"User not found"}); 
-            } 
             else {
                 return res.status(401).json({message:"User not authorized"}); 
             }
         });
 
     } else {
-        res.send({message:'Please enter Username and Password!'});
+        return res.status(404).json({message:"User not found"}); 
     }
 });
 
