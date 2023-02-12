@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShowData</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/welcome.css">
+</head>
+<body>
+<h1 style="place-content: center;">Expense Table</h1><br><br>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Delete</th>
+        </tr>
+        <% addexpense.forEach(function(expense){ %>
+        <tr>
+            <td><%= expense.id %></td>
+            <td><%= expense.amount %></td>
+            <td><%= expense.description %></td>
+            <td><%= expense.category %></td>
+            <td><a href="/delete/<%= expense.id %>" class="btn btn-danger btn-sm">delete</a></td>
+        </tr>
+        <% }) %>
+    </table>
+</div>
+
+<p>Do you want to add more expenses ? <a href="/addexpense" target="_blank" rel="noopener noreferrer"><p style="color:red;">Click Here</a></p>
+</body>
+</html>
